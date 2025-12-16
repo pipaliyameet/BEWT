@@ -1,0 +1,21 @@
+git add .
+git status
+git commite "someThing"
+git push
+
+=> *PROJECT SET-UP*
+
+open_git_reposetory=>code=>http=>copyURL=>go terminal who you have 
+=>command(public project)
+1> git clone 'pasteURL'
+2>cd folder
+3>open vs code
+4>install all packajes
+5>npm i(install all packaje who we use)
+
+=>command(privet project)
+1>git clone 'https://pipaliyameet@github.com/pasteURL'
+or
+1>seting=>devloperseting=>genrateToken(time)=>restriction
+1>git clone 'https://pipaliyameet:TOKEN@github.com/pasteURL'
+
