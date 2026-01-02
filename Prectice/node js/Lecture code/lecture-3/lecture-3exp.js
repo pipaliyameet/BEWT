@@ -15,8 +15,8 @@ app.post(
     
     //never write res.send in middleware because this end response
     //two midal wey in below line first checkbody after function
-
-    '/home', bodyParser.json(), checkLogin,//checkLogin is midal wer beacuse this midal of path and response
+    
+    '/home', bodyParser.json(), checkLogin,//checkLogin is midalware beacuse this midal of path and response
     (req,res,next)=>{
     console.log("welcome to server");
     next();
