@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());//builtting middelware 
 
-mongoose.connect('mongodb://localhost:27017/facultyDB')
+mongoose.connect('mongodb://localhost:27017/FacultyDB')
 
 .then(()=>{
     console.log("Connected to MongoDB");
