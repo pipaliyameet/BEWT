@@ -1,0 +1,6 @@
+step 1> install dependencies
+
+npm i express
+npm i mongoose
+
+step 2>create schema file
