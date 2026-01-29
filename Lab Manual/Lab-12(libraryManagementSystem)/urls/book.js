@@ -1,17 +1,17 @@
 const express = require('express');
 const books = require('../models/booksSchema');
-const app = express();
+const router = express.Router();
 
-app.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
     const data = await books.find();
     res.json(data);
 });
 
-app.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     const data = await books.findById(req.params.id);
     res.json(data);
 });
-app.post('/add', async (req, res) => {
+router.post('/add', async (req, res) => {
     const data = new books({
         bookesTital: req.body.bookesTital,
         authorName: req.body.authorName,
@@ -22,7 +22,7 @@ app.post('/add', async (req, res) => {
     res.json(data);
 });
 
-app.put('/edit/:id',async(req,res)=>{
+router.put('/edit/:id',async(req,res)=>{
     const updateBook = await books.findByIdAndUpdate(
         req.params.id,
         req.body,
@@ -31,9 +31,9 @@ app.put('/edit/:id',async(req,res)=>{
     res.send(updateBook+"This book updated successfully");
 });
 
-app.delete('/delete/:id',async(req,res)=>{
+router.delete('/delete/:id',async(req,res)=>{
     const deleteBook = await books.findByIdAndDelete(req.params.id);
     res.send(deleteBook+"This book deleted successfully");
 });
 
-module.exports = app;
+module.exports = router;
