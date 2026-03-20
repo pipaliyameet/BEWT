@@ -1,30 +1,45 @@
 const express = require('express');
+const { getAllUsers, getUserById, insertUser, updateUser, deleteUser, checkLogin } = require('../services/user.service');
+var jwt = require('jsonwebtoken')
 
-const routeUser = express.Router();
+const routeUser= express.Router();
+const {authMiddelware} = require('../middelware/auth')
 
-//get all
-routeUser.get('/',(req,res)=>{
-    res.send('get all User');
-})
+routeUser.use(authMiddelware);
+//get all users
+routeUser.get('/',async(req,res)=>{
+    const data =await getAllUsers();
+    res.send(data);
+});
 
-// get by id
-routeUser.get('/:id',(req,res)=>{
-    res.send(`'${req.params.id}' user found`);
-})
+//get by id
+routeUser.get('/:id',async (req,res)=>{
+    const data =await getUserById(req.params.id)
+    res.send(data);
+});
 
-//Insert
-routeUser.post('/',(req,res)=>{
-    res.send('Inserted User');
-})
+//login
+routeUser.post('/login',async(req,res)=>{
+    const data = await checkLogin(req.body)
+    res.send(data);
+});
+
+//insert
+routeUser.post('/',async(req,res)=>{
+    const data =await insertUser(req.body)
+    res.send(data);
+});
 
 //edit
-routeUser.patch('/:id',(req,res)=>{
-    res.send(`'${req.params.id}' user edited`);
-})
+routeUser.patch('/:id',async(req,res)=>{
+    const data =await updateUser(req.params.id, req.body)
+    res.send(data);
+});
 
 //delete
-routeUser.delete('/:id',(req,res)=>{
-    res.send(`"${req.params.id}" user deleted`);
-})
+routeUser.delete('/:id',async(req,res)=>{
+    const data =await deleteUser(req.params.id)
+    res.send(data);
+});
 
-module.exports = routeUser;
+module.exports = routeUser

@@ -36,18 +36,19 @@ export default function RootLayout({
           <div className="col border border-primary">
             <Link href="/" >Home</Link>
             &nbsp;
-            <Link href="/hospital" >Hospital</Link>
+            <Link href='/collage'>Collage</Link>
+            {/* <Link href="/hospital" >Hospital</Link>
             &nbsp;
             <Link href="/doctor">Doctor</Link>
             &nbsp;
             <Link href="/paisents">Paisents</Link>
             &nbsp;
             <Link href="/treatment" prefetch={true}>Treatment</Link>
-            {/* prefetch={true} pre-fatch data when you hower link tp treatment */}
+            prefetch={true} pre-fatch data when you hower link tp treatment
             &nbsp;
             <Link href="/treatment/opdTreatment" prefetch={true} replace={true}>opdTreatment</Link>
             &nbsp;  
-            <Link href="/treatment/subTreatment" >sub-treatment</Link>
+            <Link href="/treatment/subTreatment" >sub-treatment</Link> */}
           </div>
         </div>
         <div className="row">
